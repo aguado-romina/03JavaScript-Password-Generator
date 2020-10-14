@@ -12,3 +12,12 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+let totalCharacters = prompt ("How many characters do you want?");
+let lowerCase = prompt ("Do you want lower case?");
+let upperCase = prompt ("Do you want upper case?");
+let specialCharacter = prompt ("Do you want special characters?");
+
+
+
+
