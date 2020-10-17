@@ -1,34 +1,48 @@
 // Assignment Code
-var generateBtn = document.querySelector("#generate");
+let generateBtn = document.querySelector("#generate");
+ 
+
+
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  let password = generatePassword();
+  let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
 
 }
 
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+function generatePassword () {
+let passwordString = "";
 
+//Asking user for password requirements //
+let passwordLenght = prompt("How many characters do you want?"); 
+let lowerCase = confirm("Do you want lower case?"); 
+let upperCase = confirm("Do you want upper case?");
+let randomNumber = confirm("Do you want numbers?");  
+let randomSymbol = confirm("Do you want special characters?");
 
+//using user selections//
 
-// Romina Work //
+if (lowerCase === true) {
+  passwordString = passwordString + getRandomLower();
+}
 
-//Asking user for password requirements // 
-let totalCharacters = prompt ("How many characters do you want?");
-  console.log (totalCharacters);
+if (upperCase === true) {
+  passwordString = passwordString + getRandomUpper ();
+}
 
-let lowerCase = confirm ("Do you want lower case?");
-  console.log (lowerCase);
+if (randomNumber === true) {
+  passwordString = passwordString + getRandomNumber ();
+}
 
-let upperCase = confirm ("Do you want upper case?");
-  console.log (upperCase);
+if (randomSymbol === true) {
+  passwordString = passwordString + getRandomSymbol();
+}
 
-let specialCharacter = confirm ("Do you want special characters?");
-  console.log (specialCharacter);
+return passwordString;
+}
 
 //Generating Random values with Javascript//
 function getRandomLower() {
@@ -43,9 +57,19 @@ function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
-function getRandomSymbol() {
-  let symbols = ' !@#$%^&*(){}[]=<>/,.';
-  return symbols [Math.floor(Math.random() * symbols.length)];
+ function getRandomSymbol() {
+ let symbols = ' !@#$%^&*(){}[]=<>/,.';
+ return symbols[Math.floor(Math.random() * symbols.length)];
 }
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+
+
+
+
+
+
 
 
