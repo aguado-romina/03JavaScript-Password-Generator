@@ -17,12 +17,20 @@ generateBtn.addEventListener("click", writePassword);
 
 // Romina Work //
 
+//Asking user for password requirements // 
 let totalCharacters = prompt ("How many characters do you want?");
-let lowerCase = prompt ("Do you want lower case?");
-let upperCase = prompt ("Do you want upper case?");
-let specialCharacter = prompt ("Do you want special characters?");
+  console.log (totalCharacters);
 
+let lowerCase = confirm ("Do you want lower case?");
+  console.log (lowerCase);
 
+let upperCase = confirm ("Do you want upper case?");
+  console.log (upperCase);
+
+let specialCharacter = confirm ("Do you want special characters?");
+  console.log (specialCharacter);
+
+//Generating Random values with Javascript//
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -36,23 +44,8 @@ function getRandomNumber() {
 }
 
 function getRandomSymbol() {
-  const symbols = ' !@#$%^&*(){}[]=<>/,.';
+  let symbols = ' !@#$%^&*(){}[]=<>/,.';
   return symbols [Math.floor(Math.random() * symbols.length)];
 }
 
-console.log(getRandomLower());
 
-console.log(getRandomUpper());
-
-console.log(getRandomNumber());
-
-console.log(getRandomSymbol());
-
-const randomFunc = {
-  lower: getRandomLower,
-  upper: getRandomUpper,
-  number: getRandomNumber,
-  symbol: getRandomSymbol,
-}
-
-const 
