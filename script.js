@@ -13,6 +13,7 @@ function writePassword() {
 
 }
 
+//Begining of Generate Password//
 function generatePassword () {
 let passwordString = "";
 
@@ -23,8 +24,12 @@ let upperCase = confirm("Do you want upper case?");
 let randomNumber = confirm("Do you want numbers?");  
 let randomSymbol = confirm("Do you want special characters?");
 
-//using user selections//
-
+//If statments for user selections//
+if (passwordLenght >= 8 && passwordLenght <= 148) {
+} else {
+  alert("Password must be between 8 and 148 charachers!");
+  return generatePassword();
+}
 if (lowerCase === true) {
   passwordString = passwordString + getRandomLower();
 }
@@ -43,8 +48,9 @@ if (randomSymbol === true) {
 
 return passwordString;
 }
+//End of Generate PAssword Funtion//
 
-//Generating Random values with Javascript//
+//Begining of Generating Random values with Javascript//
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
@@ -61,6 +67,9 @@ function getRandomNumber() {
  let symbols = ' !@#$%^&*(){}[]=<>/,.';
  return symbols[Math.floor(Math.random() * symbols.length)];
 }
+//End of Generating Random values with Javascript//
+
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
