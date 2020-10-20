@@ -1,6 +1,6 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
- 
+
 
 
 
@@ -14,41 +14,65 @@ function writePassword() {
 }
 
 //Begining of Generate Password//
-function generatePassword () {
-let passwordString = "";
+function generatePassword() {
+  let passwordString = "";
 
-//Asking user for password requirements //
-let passwordLenght = prompt("How many characters do you want?"); 
-let lowerCase = confirm("Do you want lower case?"); 
-let upperCase = confirm("Do you want upper case?");
-let randomNumber = confirm("Do you want numbers?");  
-let randomSymbol = confirm("Do you want special characters?");
+  //Asking user for password requirements //
+  let passwordLenght = prompt("How many characters do you want?");
+  let lowerCase = confirm("Do you want lower case?");
+  let upperCase = confirm("Do you want upper case?");
+  let randomNumber = confirm("Do you want numbers?");
+  let randomSymbol = confirm("Do you want special characters?");
 
-//If statments for user selections//
-if (passwordLenght >= 8 && passwordLenght <= 148) {
-} else {
-  alert("Password must be between 8 and 148 charachers!");
-  return generatePassword();
-}
-if (lowerCase === true) {
-  passwordString = passwordString + getRandomLower();
+  //If statments for user selections//
+  if (passwordLenght >= 8 && passwordLenght <= 148) {
+  } else {
+    alert("Password must be between 8 and 148 charachers!");
+    return generatePassword();
+  }
+  if (lowerCase === true) {
+    passwordString = passwordString + getRandomLower();
+  }
+
+  if (upperCase === true) {
+    passwordString = passwordString + getRandomUpper();
+  }
+
+  if (randomNumber === true) {
+    passwordString = passwordString + getRandomNumber();
+  }
+
+  if (randomSymbol === true) {
+    passwordString = passwordString + getRandomSymbol();
+  }
+  console.log(passwordString);
+
+  let pwd = '';
+  for (let i = 0; i < passwordLenght; i++) {
+    //pwd += passwordString.charAt(Math.floor(Math.random() * passwordString.length));
+    
+    let randomPick = Math.floor(Math.random() * 4 + 1);
+
+    switch (randomPick) { 
+      case 1: pwd = pwd + getRandomLower(); 
+      break; 
+      case 2: pwd = pwd + getRandomUpper(); 
+      break; 
+      case 3: pwd = pwd + getRandomSymbol(); 
+      break; 
+      case 4: pwd = pwd + getRandomNumber(); 
+      break; 
+      default: return console.log("didn't give 1 - 4"); }
+  }
+  return pwd;
 }
 
-if (upperCase === true) {
-  passwordString = passwordString + getRandomUpper ();
-}
 
-if (randomNumber === true) {
-  passwordString = passwordString + getRandomNumber ();
-}
+//End of Generate Password Funtion//
 
-if (randomSymbol === true) {
-  passwordString = passwordString + getRandomSymbol();
-}
+//Begining of For loop//
 
-return passwordString;
-}
-//End of Generate PAssword Funtion//
+//End of for loop//
 
 //Begining of Generating Random values with Javascript//
 function getRandomLower() {
@@ -63,9 +87,9 @@ function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
- function getRandomSymbol() {
- let symbols = ' !@#$%^&*(){}[]=<>/,.';
- return symbols[Math.floor(Math.random() * symbols.length)];
+function getRandomSymbol() {
+  let symbols = '!@#$%^&*(){}[]=<>/,.';
+  return symbols[Math.floor(Math.random() * symbols.length)];
 }
 //End of Generating Random values with Javascript//
 
