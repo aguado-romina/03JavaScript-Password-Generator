@@ -49,9 +49,8 @@ function generatePassword() {
 
   let pwd = '';
   for (let i = 0; i < passwordLenght; i++) {
-    //pwd += passwordString.charAt(Math.floor(Math.random() * passwordString.length));
-    
-    let randomPick = Math.floor(Math.random() * 4 + 1);
+  
+  let randomPick = Math.floor(Math.random() * 4 + 1);
 
     switch (randomPick) { 
       case 1: pwd = pwd + getRandomLower(); 
