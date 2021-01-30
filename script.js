@@ -1,16 +1,12 @@
 // Assignment Code
 let generateBtn = document.querySelector("#generate");
 
-
-
-
 // Write password to the #password input
 function writePassword() {
   let password = generatePassword();
   let passwordText = document.querySelector("#password");
 
   passwordText.value = password;
-
 }
 
 //Begining of Generate Password//
@@ -73,7 +69,7 @@ return pwd;
 
 
 
-//Begining of Generating Random values with Javascript//
+//Begining of Generating Random values with Javascript - Used Youtube tutorial - link attached in README//
 function getRandomLower() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
